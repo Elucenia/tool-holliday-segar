@@ -1,0 +1,167 @@
+{
+  "tool": {
+    "id": "holliday-segar",
+    "title": "Hidratação de manutenção (Holliday-Segar)",
+    "short": "Volume diário e regra 4-2-1",
+    "spec": [
+      "pediatria",
+      "cirurgia-pediatrica",
+      "medicina-intensiva",
+      "medicina-de-emergencia"
+    ],
+    "tier": 1,
+    "desc": "Calcule a necessidade hídrica de manutenção pela regra de Holliday-Segar (100/50/20 mL/kg/dia) e a vazão horária pela regra 4-2-1 em crianças.",
+    "lead": "Estima o volume de manutenção de líquidos por dia e por hora pelo peso, base para prescrever hidratação venosa em crianças.",
+    "fields": [
+      [
+        "peso",
+        "Peso",
+        "num",
+        {
+          "min": 2.5,
+          "max": 120,
+          "step": 0.1,
+          "unit": "kg",
+          "ph": "15"
+        }
+      ]
+    ],
+    "formula": "<ul><li>Primeiros 10 kg: <strong>100 mL/kg/dia</strong> (4 mL/kg/h)</li><li>De 10 a 20 kg: + <strong>50 mL/kg/dia</strong> (2 mL/kg/h) para cada kg acima de 10</li><li>Acima de 20 kg: + <strong>20 mL/kg/dia</strong> (1 mL/kg/h) para cada kg acima de 20</li></ul><p>A regra 4-2-1 é a versão horária arredondada e dá valores um pouco diferentes do total ÷ 24 acima de 20 kg.</p>",
+    "table": [
+      [
+        "Peso",
+        "Volume por dia",
+        "Vazão (4-2-1)"
+      ],
+      [
+        "10 kg",
+        "1.000 mL",
+        "40 mL/h"
+      ],
+      [
+        "20 kg",
+        "1.500 mL",
+        "60 mL/h"
+      ],
+      [
+        "30 kg",
+        "1.700 mL",
+        "70 mL/h"
+      ],
+      [
+        "50 kg",
+        "2.100 mL",
+        "90 mL/h"
+      ]
+    ],
+    "tips": [
+      "Use <strong>solução isotônica</strong> (Na 131 a 154 mEq/L) com potássio e glicose adequados para a manutenção venosa: soluções hipotônicas aumentam o risco de hiponatremia (AAP 2018).",
+      "O volume de manutenção não repõe perdas: some déficit (desidratação) e perdas contínuas (diarreia, drenos, febre) separadamente.",
+      "Em SIADH (pneumonia, meningite, pós-operatório, dor), insuficiência cardíaca ou renal, costuma-se restringir para 50 a 80% da manutenção e monitorar sódio e diurese.",
+      "Não se aplica a recém-nascidos nas primeiras semanas de vida, que têm necessidades próprias por dia de vida e idade gestacional."
+    ],
+    "sources": [
+      [
+        "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics, 1957.",
+        "https://doi.org/10.1542/peds.19.5.823"
+      ],
+      [
+        "Feld LG et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics, 2018.",
+        "https://doi.org/10.1542/peds.2018-3083"
+      ]
+    ],
+    "cases": [
+      [
+        "8 kg: 800 mL/dia, 32 mL/h",
+        {
+          "peso": 8
+        },
+        {
+          "raw": {
+            "dia": 800,
+            "hora": 32
+          },
+          "main": "800",
+          "level": "info"
+        }
+      ],
+      [
+        "10 kg (limite): 1.000 mL/dia, 40 mL/h",
+        {
+          "peso": 10
+        },
+        {
+          "raw": {
+            "dia": 1000,
+            "hora": 40
+          }
+        }
+      ],
+      [
+        "15 kg: 1.000 + 250 = 1.250 mL/dia; 40 + 10 = 50 mL/h",
+        {
+          "peso": 15
+        },
+        {
+          "raw": {
+            "dia": 1250,
+            "hora": 50
+          },
+          "main": "1.250"
+        }
+      ],
+      [
+        "30 kg: 1.500 + 200 = 1.700 mL/dia; 60 + 10 = 70 mL/h",
+        {
+          "peso": 30
+        },
+        {
+          "raw": {
+            "dia": 1700,
+            "hora": 70
+          }
+        }
+      ]
+    ],
+    "batch": "mulher-crianca",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "mulher-crianca",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/mulher-crianca.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 4,
+      "passed": 4,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "id": "holliday-segar",
+    "status": "restricted",
+    "reason": "A entrada só solicita peso e não verifica idade nem exclusões. A diretriz AAP citada abrange 28 dias–18 anos e exclui, entre outros, câncer, disfunção renal e cardiopatia. Há recomendação de restrição de volume sem avaliação clínica; suspender aplicação assistencial e manter documentação.",
+    "sourceUrl": "https://publications.aap.org/pediatrics/article/142/6/e20183083/37529/Clinical-Practice-Guideline-Maintenance",
+    "sourceTitle": "AAP — Maintenance Intravenous Fluids in Children",
+    "sourceDate": "2018-12-01",
+    "publisherRegion": "Estados Unidos / AAP",
+    "checkedAt": "2026-09-25",
+    "clinicalValidation": "not-performed",
+    "suppressLegacyFormula": true,
+    "formulaOverride": "Estimativa histórica de manutenção: 100 mL/kg/dia nos primeiros 10 kg; 50 nos próximos 10; 20 por kg adicional. A regra horária 4–2–1 é uma aproximação distinta. Não determina reposição, composição ou prescrição."
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/mulher-crianca.php",
+    "sha256": "c37d3fefb430d6ec19144161e40e9a08247f3a10406e2873c8d6a4be8649917c",
+    "bytes": 81915
+  },
+  "clinicalValidation": "not-performed"
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "label": "8 kg: 800 mL/dia, 32 mL/h",
+    "input": {
+      "peso": 8
+    },
+    "expected": {
+      "raw": {
+        "dia": 800,
+        "hora": 32
+      },
+      "main": "800",
+      "level": "info"
+    },
+    "originalInput": {
+      "peso": 8
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "10 kg (limite): 1.000 mL/dia, 40 mL/h",
+    "input": {
+      "peso": 10
+    },
+    "expected": {
+      "raw": {
+        "dia": 1000,
+        "hora": 40
+      }
+    },
+    "originalInput": {
+      "peso": 10
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "15 kg: 1.000 + 250 = 1.250 mL/dia; 40 + 10 = 50 mL/h",
+    "input": {
+      "peso": 15
+    },
+    "expected": {
+      "raw": {
+        "dia": 1250,
+        "hora": 50
+      },
+      "main": "1.250"
+    },
+    "originalInput": {
+      "peso": 15
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "30 kg: 1.500 + 200 = 1.700 mL/dia; 60 + 10 = 70 mL/h",
+    "input": {
+      "peso": 30
+    },
+    "expected": {
+      "raw": {
+        "dia": 1700,
+        "hora": 70
+      }
+    },
+    "originalInput": {
+      "peso": 30
+    },
+    "expandedZeroOptions": []
+  }
+]
