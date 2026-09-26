@@ -123,13 +123,9 @@
         }
       ]
     ],
-    "batch": "mulher-crianca",
     "kind": "Calculadora",
     "config": null,
-    "areaId": "mulher-crianca",
     "clinicalReview": "pending",
-    "sourceReview": "pending",
-    "sourceFile": "app/content/ferramentas/mulher-crianca.php",
     "arithmeticTest": {
       "status": "passed",
       "testedAt": "2026-09-25",
@@ -157,11 +153,6 @@
     "clinicalValidation": "not-performed",
     "suppressLegacyFormula": true,
     "formulaOverride": "Estimativa histórica de manutenção: 100 mL/kg/dia nos primeiros 10 kg; 50 nos próximos 10; 20 por kg adicional. A regra horária 4–2–1 é uma aproximação distinta. Não determina reposição, composição ou prescrição."
-  },
-  "sourceFile": {
-    "path": "app/content/ferramentas/mulher-crianca.php",
-    "sha256": "c37d3fefb430d6ec19144161e40e9a08247f3a10406e2873c8d6a4be8649917c",
-    "bytes": 81915
   },
   "clinicalValidation": "not-performed"
 }
